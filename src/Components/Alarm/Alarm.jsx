@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import moment from 'moment';
 
 const Alarm = () => {
-  var moment = require('moment'); // require
-  
   const [minute, setMinute] = useState();
   const [hour, setHour] = useState();
   const [day, setDay] = useState();
@@ -12,7 +11,30 @@ const Alarm = () => {
   const dayArr = Array.from(Array())
   // console.log(minuteArr);
 
-  console.log(moment().format('MMMM Do YYYY, h:mm:ss a'));
+  console.log(moment().format('MMMM Do YYYY, h:mm:ss'));
+  console.log(moment().format('DD.MM.YYYY h:mm:ss'));
+  // console.log(moment().format());
+  // console.log(moment([2021, 7, 10, 1]).fromNow());
+
+  const timerAlarm = moment().format('09.08.2021 23:37:25');
+  useEffect(() => {
+    // const interval = setInterval(() => {
+    //   console.log(moment().format('DD.MM.YYYY H:mm:ss'), timerAlarm);
+    //   if (timerAlarm === moment().format('DD.MM.YYYY H:mm:ss')) {
+    //     console.log("ALARM!")
+    //   }
+    //   const tempTime = moment().format('DD.MM.YYYY H:mm:ss')
+    //   if (moment(moment().format('DD.MM.YYYY H:mm:ss')).isSame(timerAlarm)) {
+    //     console.log("ALARM!")
+    //   }
+    // }, 1000);
+    // return () => clearInterval(interval);
+
+  }, [])
+
+  var start = moment().format('09.08.2021 22:19:03');
+
+  console.log(start)
 
   function handleSubmit(params) {
     console.log("submit works")
