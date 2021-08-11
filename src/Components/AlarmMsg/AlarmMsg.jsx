@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AlarmMsg = ({ msg, clearAlarm}) => {
+const AlarmMsg = ({ msg, clearAlarm }) => {
   return(
     <div>
       <h1>{msg}</h1>

@@ -1,18 +1,40 @@
 @import '../../rules/rules.scss';
+@import '../../rules/variables.scss';
+
+.App {
+  height: 100vh;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Roboto', 'Arial', sans-serif;
+  background: $really_dark_pink;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+}
 
 .alarm {
-  margin: 10px auto 0 auto;
+  box-shadow: 0 5px 10px rgba(255, 254, 254, 0.2);
   width: 300px;
 }
 
+form {
+  background: $light_pink;
+  min-height: 200px;
+}
+
 .container {
+  background: $light_pink;
   margin-bottom: 10px;
-  border: 1px solid black;
   min-height: 100px;
 
    &__title {
     border-bottom: 1px solid black;
-    padding: 3px 0 3px 5px;
+    padding: 8px 0 8px 5px;
+    background: $sepia;
+    color: $really_dark_pink;
+    font-weight: bold;
   }
 
   &__chooseAlarm {
@@ -43,18 +65,18 @@
 
   .submit {
     margin: 0 auto;
-    border: 1px solid blue;
+    border: 1px solid $light_pink;
     border-radius: 25px;
     padding: 10px;
     width: 120px;
-    background: blue;
+    background-color: $dark_pink;
     color: white;
-    transition: 0.3s;
+    transition: all .3s linear;
     cursor: pointer;
 
     &:hover {
-      background: white;
-      border: white;
-      color: blue;
+      background: $sepia;
+      border: $sepia;
+      color: $dark_pink;
     }
   }

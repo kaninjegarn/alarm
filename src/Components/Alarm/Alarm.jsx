@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import AlarmMsg from '../AlarmMsg/AlarmMsg';
+import AlarmList from '../AlarmList/AlarmList';
 import { fillArray } from '../../helpers';
 import './alarm.scss';
 
 const Alarm = () => {
+  let shortTimer;
   const [minute, setMinute] = useState();
   const [hour, setHour] = useState();
   const [day, setDay] = useState();
@@ -12,25 +14,18 @@ const Alarm = () => {
   const [alarmIsSet, setAlarmIsSet] = useState(false);
   const [alarm, setAlarm] = useState();
   const [showMsg, setShowMsg] = useState(false);
-
+  const [alarmObj, setAlarmObj] = useState({ when: shortTimer || '18:00', message: msg || ''})
+  const [awaitingAlarm, setAwaitingAlarm] = useState(false);
   const minuteArr = fillArray(59);
   const hourArr = fillArray(24);
-
-  // const minuteArr = Array.from(Array(60).keys());
-  // const hourArr = Array.from(Array(24).keys());
-
-  // const dayArr = Array.from(Array());
-
-
-  // console.log(moment().format('MMMM Do YYYY, h:mm:ss'));
-  // console.log(moment().format('DD.MM.YYYY h:mm:ss'));
-  // console.log(moment().format());
-  // console.log(moment([2021, 7, 10, 1]).fromNow());
+  
 
   function handleSubmit(event) {
     event.preventDefault();
     setAlarm(moment().format(`DD.MM.YYYY ${hour}:${minute}`));
-    setAlarmIsSet(true)
+    shortTimer = (hour + ":" + minute);
+    setAlarmIsSet(true);
+    setAwaitingAlarm(true);
   }
 
   function handleMinute(event) {
@@ -49,8 +44,13 @@ const Alarm = () => {
     setShowMsg(false);
   }
 
+  // WORKS
+  // function play() {
+  //   var audio = new Audio('https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3');
+  //   audio.play();
+  // }
+
   useEffect(() => {
-    console.log(alarm)
     if(!alarmIsSet) {
       console.log("ska inte köras")
     } else {
@@ -60,20 +60,27 @@ const Alarm = () => {
           setShowMsg(true);
           console.log("ALARM!")
         }
-        const tempTime = moment().format('DD.MM.YYYY H:mm')
-        if (moment(moment().format('DD.MM.YYYY H:mm:ss')).isSame(alarm)) {
-          console.log("ALARM!")
-        }
+        // const tempTime = moment().format('DD.MM.YYYY H:mm')
+        // if (moment(moment().format('DD.MM.YYYY H:mm:ss')).isSame(alarm)) {
+        //   console.log("ALARM!")
+        // }
       }, 1000);
       return () => clearInterval(interval);
     }
   }, [alarmIsSet])
 
   return(
-    <div className="alarm">
-      {showMsg && 
-        <AlarmMsg msg={msg} clearAlarm={clearAlarm}/>
+    <>
+    { showMsg &&
+    <AlarmMsg msg={msg} clearAlarm={clearAlarm} />
       }
+
+      {
+        awaitingAlarm === false ? (
+          <AlarmList obj={alarmObj}/>
+        ): (
+    <div className="alarm">
+      {/* <button onClick={play}>Play Audio</button> */}
       <form onSubmit={handleSubmit}>
         <div className="container">
         <p className="container__title">What time?</p>
@@ -97,16 +104,12 @@ const Alarm = () => {
             <input type="text" name="msg" value={msg} onChange={(e) => setMsg(e.target.value)} />
           </div>
         </div>
-        
-        
-
         <input className="submit" type="submit" value="Save"/>
-        {/* <label htmlFor="day">Day</label>
-        <select name="day" id="">
-
-        </select> */}
       </form>
     </div>
+        )
+      }
+    </>
   )
 }
 

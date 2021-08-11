@@ -1,0 +1,9 @@
+@import '../../rules/variables.scss';
+
+.pendingAlarm {
+  background-color: $light_pink;
+  width: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
