@@ -1,5 +1,4 @@
 function fillArray(size) {
-  const minutes = 59;
   let tempArr = [];
 
   for (let i = 0; i <= size; i++) {

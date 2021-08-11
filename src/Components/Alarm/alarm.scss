@@ -1,0 +1,60 @@
+@import '../../rules/rules.scss';
+
+.alarm {
+  margin: 10px auto 0 auto;
+  width: 300px;
+}
+
+.container {
+  margin-bottom: 10px;
+  border: 1px solid black;
+  min-height: 100px;
+
+   &__title {
+    border-bottom: 1px solid black;
+    padding: 3px 0 3px 5px;
+  }
+
+  &__chooseAlarm {
+    display: flex;
+    width: 150px;
+    margin: 20px auto 20px auto;
+  }
+
+  &__hour, &__minute {
+    margin: 0 4px 0 4px;
+    padding: 7px;
+  }
+
+ 
+
+  &__dots {
+    font-size: larger;
+    font-weight: 700;
+  }
+}
+
+ .msg {
+    & input {
+      margin: 0 auto;
+      padding: 5px;
+    }
+  }
+
+  .submit {
+    margin: 0 auto;
+    border: 1px solid blue;
+    border-radius: 25px;
+    padding: 10px;
+    width: 120px;
+    background: blue;
+    color: white;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      background: white;
+      border: white;
+      color: blue;
+    }
+  }

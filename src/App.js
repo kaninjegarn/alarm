@@ -1,4 +1,3 @@
-import './App.css';
 import Alarm from './Components/Alarm/Alarm';
 
 function App() {
