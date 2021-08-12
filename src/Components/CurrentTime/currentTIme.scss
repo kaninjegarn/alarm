@@ -1,0 +1,16 @@
+@import '../../rules/variables.scss';
+
+.currentTime {
+  position: absolute;
+  top: 0;
+  width: 300px;
+  height: 100px; /* as the half of the width */
+  background-color: $dark_pink;
+  border-bottom-left-radius: 150px;  /* 100px of height + 10px of border */
+  border-bottom-right-radius: 150px; /* 100px of height + 10px of border */
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  color: $sepia;
+  font-size: 24px;
+}

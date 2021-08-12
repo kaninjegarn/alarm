@@ -1,2 +1,2 @@
-//! TODO ska jag inte ha labels?
-//! TODO ska jag göra det med input numbers ist?
+//! TODO centrera error msg
+//! TODO över 12 på natten funkar inte alarmet, 

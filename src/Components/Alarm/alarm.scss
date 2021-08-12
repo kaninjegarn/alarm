@@ -11,7 +11,6 @@
   align-items: center;
   display: flex;
   justify-content: center;
-
 }
 
 .alarm {
@@ -35,12 +34,18 @@ form {
     background: $sepia;
     color: $really_dark_pink;
     font-weight: bold;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   }
 
   &__chooseAlarm {
     display: flex;
     width: 150px;
     margin: 20px auto 20px auto;
+    flex-direction: column;
+
+    &--select {
+      display: flex;
+    }
   }
 
   &__hour, &__minute {
@@ -53,6 +58,7 @@ form {
   &__dots {
     font-size: larger;
     font-weight: 700;
+    margin-top: 3px;
   }
 }
 
@@ -80,3 +86,19 @@ form {
       color: $dark_pink;
     }
   }
+
+  .errorMSG {
+    min-height: 30px;
+    width: 200px;
+    color: $sepia;
+    font-weight: bold;
+    
+    & p {
+      animation: fadein 0.5s;
+    }
+  }
+
+  @keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
