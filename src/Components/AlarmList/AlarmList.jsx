@@ -1,18 +1,39 @@
 import React from 'react';
 import './AlarmList.scss';
 
-const AlarmList = ({ obj, cancelAlarm }) => {
+const AlarmList = ({ obj, cancelAlarm, className }) => {
   return(
-    <div className="pendingAlarm">
+    <div className={`pendingAlarm ${className}`}>
       <div className="pendingAlarm__container">
         <div className="pendingAlarm__when">
-          <h2>{obj.when}</h2>
-        </div>
-        <div className="pendingAlarm__message">
-         💬 {obj.message}
+          {className === "middle" ? (
+            <>
+              <p>Your alarm is ringing</p>
+              <h2>{obj.when}</h2>
+              <div className="pendingAlarm__message--active">
+                <p>{obj.message}</p>
+              </div>
+            </>
+          ):(
+            <>
+              <h2>{obj.when}</h2>
+              <div className="pendingAlarm__message">
+                💬 {obj.message}
+              </div>
+            </>
+          )
+          }
         </div>
       </div>
-      <div className="pendingAlarm__cancel" onClick={cancelAlarm}>X</div>
+      { className === "middle" ? (
+        <div className="pendingAlarm__reset" onClick={cancelAlarm}>
+          x
+        </div>
+      ):
+      (
+        <div className="pendingAlarm__cancel" onClick={cancelAlarm}><span>❌</span></div>
+      )
+    }
     </div>
   )
 }

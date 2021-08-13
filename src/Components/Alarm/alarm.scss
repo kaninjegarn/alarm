@@ -14,13 +14,14 @@
 }
 
 .alarm {
-  box-shadow: 0 5px 10px rgba(255, 254, 254, 0.2);
   width: 300px;
 }
 
 form {
+  box-shadow: 0 5px 10px rgba(255, 254, 254, 0.2);
   background: $light_pink;
   min-height: 200px;
+  border-radius: 5px;
 }
 
 .container {
@@ -29,6 +30,7 @@ form {
   min-height: 100px;
 
    &__title {
+    border-radius: 5px;
     border-bottom: 1px solid black;
     padding: 8px 0 8px 5px;
     background: $sepia;
@@ -53,8 +55,6 @@ form {
     padding: 7px;
   }
 
- 
-
   &__dots {
     font-size: larger;
     font-weight: 700;
@@ -70,19 +70,22 @@ form {
   }
 
   .submit {
-    margin: 0 auto;
-    border: 1px solid $light_pink;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(255, 254, 254, 0.2);
+    margin: 15px auto 0 auto;
+    border: 1px solid $sepia;
     border-radius: 25px;
-    padding: 10px;
-    width: 120px;
-    background-color: $dark_pink;
+    padding: 12px;
+    width: 130px;
+    background-color: $light_pink;
     color: white;
     transition: all .3s linear;
     cursor: pointer;
+    font-style: italic;
+    font-size: 16px;
 
     &:hover {
       background: $sepia;
-      border: $sepia;
       color: $dark_pink;
     }
   }
@@ -93,9 +96,7 @@ form {
     color: $sepia;
     font-weight: bold;
     
-    & p {
-      animation: fadein 0.5s;
-    }
+    & p { animation: fadein 0.5s; }
   }
 
   @keyframes fadein {
