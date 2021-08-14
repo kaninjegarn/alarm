@@ -1,28 +1,17 @@
-import React, { useState } from 'react';
-import './AlarmMsg.scss';
+import React from 'react';
 import Sound from 'react-sound';
 
-const AlarmMsg = ({ msg, cancelAlarm }) => {
-  const [startAudio, setStartAudio] = useState(true);
-  
-  function handleCancelAlarm() {
-    cancelAlarm();
-    setStartAudio(false);
-  }
-
+const AlarmMsg = () => {
   return(
     <div className="alarmMsg">
       {
-        // startAudio && 
-        // <Sound
-        //   url="/eurodancer.wav"
-        //   playStatus={Sound.status.PLAYING}
-        //   playFromPosition={300 /* in milliseconds */}
-        //   volume={50}
-        // />
+        <Sound
+          url="/eurodancer.wav"
+          playStatus={Sound.status.PLAYING}
+          playFromPosition={300}
+          volume={50}
+        />
       }
-      <h1 className="alarmMsg__title">{msg}</h1>
-      <div className="alarmMsg__cancel" onClick={handleCancelAlarm}>Clear</div>
     </div>
   )
 }

@@ -22,12 +22,12 @@ const AlarmList = ({ obj, cancelAlarm, className }) => {
               </div>
             </>
           )
-          }
+        }
         </div>
       </div>
       { className === "middle" ? (
         <div className="pendingAlarm__reset" onClick={cancelAlarm}>
-          x
+          <span>Reset</span>
         </div>
       ):
       (

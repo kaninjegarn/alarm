@@ -42,10 +42,32 @@
     right: 0;
     padding: 5px;
   }
+
+  &__reset {
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(255, 254, 254, 0.2);
+    margin: 15px auto 0 auto;
+    border: 1px solid $sepia;
+    border-radius: 25px;
+    padding: 12px;
+    width: 130px;
+    background-color: $dark_pink;
+    color: white;
+    transition: all .3s linear;
+    cursor: pointer;
+    font-style: italic;
+    font-size: 16px;
+
+    &:hover {
+      background: $sepia;
+      color: $dark_pink;
+    }
+  }
 }
 
 .middle {
-  // !TODO FIXA
   top: 50% !important;
   left: 50% !important;
   transform: translate(-50%, -50%) !important;
@@ -55,8 +77,13 @@
   display: flex;
   justify-content: center;
 
+  .pendingAlarm__container {
+    width: 100%;
+    text-align: center;
+  }
+
   h2 {
-    display: flex;
+    margin: 10px 0 15px 0;
     font-size: 42px;
   }
 }

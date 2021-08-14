@@ -8,8 +8,8 @@ import './alarm.scss';
 
 const Alarm = () => {
   let shortTimer;
-  const [minute, setMinute] = useState('');
-  const [hour, setHour] = useState('');
+  const [minute, setMinute] = useState('00');
+  const [hour, setHour] = useState('00');
   const [msg, setMsg] = useState("Alarm");
   const [alarmIsSet, setAlarmIsSet] = useState(false);
   const [showErrorMsg, setShowErrorMsg] = useState(false);
@@ -43,11 +43,12 @@ const Alarm = () => {
     setHour(event.target.value);
   }
 
-  function cancelAlarm(params) {
-    setHour('');
-    setMinute('');
+  function cancelAlarm() {
+    setHour('00');
+    setMinute('00');
     setAwaitingAlarm(false);
     setShowMsg(false);
+    setAlarmIsSet(false);
   }
 
   useEffect(() => {
@@ -70,7 +71,7 @@ const Alarm = () => {
   return(
     <>
       <CurrentTime />
-      { showMsg && <AlarmMsg msg={msg} cancelAlarm={cancelAlarm} /> }
+      { showMsg && <AlarmMsg /> }
       { awaitingAlarm === true ? (
           <AlarmList obj={alarmObj} cancelAlarm={cancelAlarm} className={showMsg ? 'middle' : 'top'}/>
         ):
