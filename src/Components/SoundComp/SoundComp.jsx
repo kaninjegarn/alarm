@@ -1,7 +1,7 @@
 import React from 'react';
 import Sound from 'react-sound';
 
-const AlarmMsg = () => {
+const SoundComp = () => {
   return(
     <div className="alarmMsg">
       {
@@ -16,4 +16,4 @@ const AlarmMsg = () => {
   )
 }
 
-export default AlarmMsg;
+export default SoundComp;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
-import AlarmMsg from '../AlarmMsg/AlarmMsg';
+import SoundComp from '../SoundComp/SoundComp';
 import AlarmList from '../AlarmList/AlarmList';
 import CurrentTime from '../CurrentTime/CurrentTime';
 import { fillArray } from '../../helpers';
@@ -53,15 +53,10 @@ const Alarm = () => {
 
   useEffect(() => {
     if(!alarmIsSet) {
-      //! TODO ta bort sen
-      console.log("ska inte köras")
     } else {
       const interval = setInterval(() => {
-        console.log(moment().format('DD.MM.YYYY H:mm:ss'), alarm, msg);
         if (alarm === moment().format('DD.MM.YYYY H:mm:ss')) {
           setShowMsg(true);
-          //! TODO ta bort sen
-          console.log("ALARM!");
         }
       }, 1000);
       return () => clearInterval(interval);
@@ -71,7 +66,7 @@ const Alarm = () => {
   return(
     <>
       <CurrentTime />
-      { showMsg && <AlarmMsg /> }
+      {showMsg && <SoundComp /> }
       { awaitingAlarm === true ? (
           <AlarmList obj={alarmObj} cancelAlarm={cancelAlarm} className={showMsg ? 'middle' : 'top'}/>
         ):
