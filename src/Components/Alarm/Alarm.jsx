@@ -5,6 +5,7 @@ import AlarmList from '../AlarmList/AlarmList';
 import CurrentTime from '../CurrentTime/CurrentTime';
 import { fillArray } from '../../helpers';
 import './alarm.scss';
+import ChooseAlarm from '../ChooseAlarm/ChooseAlarm';
 
 const Alarm = () => {
   let shortTimer;
@@ -19,6 +20,7 @@ const Alarm = () => {
   const [awaitingAlarm, setAwaitingAlarm] = useState(false);
   const minuteArr = fillArray(59);
   const hourArr = fillArray(24);
+  const [song, setSong] = useState("eurodancer");
   
 
   function handleSubmit(event) {
@@ -43,6 +45,10 @@ const Alarm = () => {
     setHour(event.target.value);
   }
 
+  function desiredSong(song) {
+    setSong(`${song}.wav`);
+  }
+
   function cancelAlarm() {
     setHour('00');
     setMinute('00');
@@ -65,8 +71,9 @@ const Alarm = () => {
  
   return(
     <>
+      <ChooseAlarm desiredSong={desiredSong}/>
       <CurrentTime />
-      {showMsg && <SoundComp /> }
+      {showMsg && <SoundComp song={song}/> }
       { awaitingAlarm === true ? (
           <AlarmList obj={alarmObj} cancelAlarm={cancelAlarm} className={showMsg ? 'middle' : 'top'}/>
         ):

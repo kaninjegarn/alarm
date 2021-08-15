@@ -1,0 +1,31 @@
+@import '/src/rules/variables.scss';
+
+.chooseAlarm {
+  z-index: 9;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 200px;
+  width: 200px;
+  border-top-left-radius: 200px;
+  background-color: $light_pink;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  cursor: pointer;
+
+  &__toggle {
+    margin-left: 45px;
+    color: $sepia;
+
+    p {
+      text-decoration: underline;
+    }
+  }
+
+  &__change {
+    position: absolute;
+    bottom: 25px;
+  }
+}
